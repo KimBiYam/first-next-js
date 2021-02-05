@@ -1,19 +1,24 @@
-// pages/index.tsx
+import React from "react";
 
-import React, { useState } from "react";
+import { getPosts, PostType } from "../api";
+import { MainLayout } from "../components/common/MainLayout";
+import { PostList } from "../components/post/PostList";
 
-export default function Home() {
-  const [text, setText] = useState<string>("자바스크립트");
-
-  setTimeout(() => {
-    setText("타입스크립트");
-  }, 1000);
-
-  return (
-    <div className="container">
-      <div>
-        <span>{text} 적용 완료</span>
-      </div>
-    </div>
-  );
+interface Props {
+  posts: PostType[];
 }
+
+const Home = ({ posts }: Props) => (
+  <MainLayout title="홈">
+    <PostList posts={posts} />
+  </MainLayout>
+);
+
+Home.getInitialProps = async () => {
+  console.log("executed home getInitialProps");
+
+  const posts: PostType[] = await getPosts();
+  return { posts };
+};
+
+export default Home;
