@@ -33,7 +33,6 @@ const Container = styled.div`
 `;
 
 const HeaderWrapper = styled.header`
-  flex-shrink: 0;
   background-color: white;
   padding: 30px 24px;
   border-bottom: 1px solid #eeeeee;
