@@ -1,3 +1,4 @@
+import { Button } from "@material-ui/core";
 import Link from "next/link";
 import React from "react";
 import styled, { css } from "styled-components";
@@ -8,21 +9,17 @@ export const Header = () => {
       <Link href="/">
         <LogoBlack>Post-app</LogoBlack>
       </Link>
-      <div>
-        <Link href="/login">
-          <LogoBlue>Login</LogoBlue>
-        </Link>
-      </div>
+      <Link href="/auth/login">
+        <Button color="primary">Login</Button>
+      </Link>
     </Container>
   );
 };
 
 const Container = styled.div`
-  width: 100%;
-  margin: 0 auto;
+  backgroudn-color: white;
   display: flex;
   justify-content: space-between;
-  backgroudn-color: white;
   color: #222222;
 `;
 
