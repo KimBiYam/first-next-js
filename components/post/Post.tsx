@@ -12,7 +12,7 @@ export const Post = ({ post }: Props) => {
     <Container>
       <Header>
         <Title>{post.title}</Title>
-        <Content>{post.content}</Content>
+        <Content>{post.body}</Content>
       </Header>
     </Container>
   );
