@@ -25,12 +25,16 @@ export const MainLayout = ({ title, children }) => {
 };
 
 const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
   width: 100%;
   background-color: white;
 `;
 
 const HeaderWrapper = styled.header`
-  width: 100%;
+  flex-shrink: 0;
+  background-color: white;
   padding: 30px 24px;
   border-bottom: 1px solid #eeeeee;
   margin-bottom: 12px;
@@ -38,5 +42,6 @@ const HeaderWrapper = styled.header`
 
 const Main = styled.main`
   width: 100%;
+  overflow-y: auto;
   padding: 30px 24px;
 `;
