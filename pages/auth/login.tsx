@@ -1,11 +1,11 @@
 import React from "react";
 
-import { MainLayout } from "../../components/common/MainLayout";
+import { Layout } from "../../components/common/Layout";
 
 const Login = () => (
-  <MainLayout title="로그인">
+  <Layout title="로그인">
     <h1>로그인</h1>
-  </MainLayout>
+  </Layout>
 );
 
 export default Login;

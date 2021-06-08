@@ -6,9 +6,10 @@ import { Header } from "./Header";
 
 interface Props {
   title: string;
+  children: React.ReactNode;
 }
 
-export const MainLayout = ({ title, children }) => {
+export const Layout = ({ title, children }: Props) => {
   return (
     <Container>
       <Head>

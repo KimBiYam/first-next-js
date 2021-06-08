@@ -4,7 +4,7 @@ import React from "react";
 import styled from "styled-components";
 
 import { getPost, PostType } from "../../api";
-import { MainLayout } from "../../components/common/MainLayout";
+import { Layout } from "../../components/common/Layout";
 import { Post } from "../../components/post/Post";
 
 interface Props {
@@ -13,13 +13,13 @@ interface Props {
 
 const PostDetailPage: NextPage<Props> = ({ post }: Props) => {
   return (
-    <MainLayout title={`${post.title} 게시글`}>
+    <Layout title="게시글">
       <Link href="/">
         <BackToHome>홈으로 돌아가기</BackToHome>
       </Link>
       <Divier />
       <Post post={post} />
-    </MainLayout>
+    </Layout>
   );
 };
 

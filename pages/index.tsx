@@ -1,7 +1,7 @@
 import React from "react";
 
 import { getPosts, PostType } from "../api";
-import { MainLayout } from "../components/common/MainLayout";
+import { Layout } from "../components/common/Layout";
 import { PostList } from "../components/post/PostList";
 
 interface Props {
@@ -9,9 +9,9 @@ interface Props {
 }
 
 const Home = ({ posts }: Props) => (
-  <MainLayout title="홈">
+  <Layout title="홈">
     <PostList posts={posts} />
-  </MainLayout>
+  </Layout>
 );
 
 Home.getInitialProps = async () => {
