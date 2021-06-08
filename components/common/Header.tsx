@@ -3,7 +3,7 @@ import Link from "next/link";
 import React from "react";
 import styled, { css } from "styled-components";
 
-export const Header = () => {
+function Header() {
   return (
     <Container>
       <Link href="/">
@@ -14,10 +14,10 @@ export const Header = () => {
       </Link>
     </Container>
   );
-};
+}
 
 const Container = styled.div`
-  backgroudn-color: white;
+  background-color: white;
   display: flex;
   justify-content: space-between;
   color: #222222;
@@ -38,3 +38,5 @@ const LogoBlue = styled.a`
   ${LogoBase}
   color: blue;
 `;
+
+export default Header;

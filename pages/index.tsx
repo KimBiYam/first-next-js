@@ -8,17 +8,17 @@ interface Props {
   posts: PostType[];
 }
 
-const Home = ({ posts }: Props) => (
-  <Layout title="홈">
-    <PostList posts={posts} />
-  </Layout>
-);
+function Home({ posts }: Props) {
+  return (
+    <Layout title="홈">
+      <PostList posts={posts} />
+    </Layout>
+  );
+}
 
-Home.getInitialProps = async () => {
-  console.log("executed home getInitialProps");
-
+export async function getStaticProps() {
   const posts: PostType[] = await getPosts();
-  return { posts };
-};
+  return { props: { posts } };
+}
 
 export default Home;

@@ -1,9 +1,8 @@
-import { NextPage, NextPageContext } from "next";
 import Link from "next/link";
 import React from "react";
 import styled from "styled-components";
 
-import { getPost, PostType } from "../../api";
+import { getPost, getPosts, PostType } from "../../api";
 import { Layout } from "../../components/common/Layout";
 import { Post } from "../../components/post/Post";
 
@@ -11,7 +10,7 @@ interface Props {
   post: PostType;
 }
 
-const PostDetailPage: NextPage<Props> = ({ post }: Props) => {
+function PostDetailPage({ post }: Props) {
   return (
     <Layout title="게시글">
       <Link href="/">
@@ -21,17 +20,23 @@ const PostDetailPage: NextPage<Props> = ({ post }: Props) => {
       <Post post={post} />
     </Layout>
   );
-};
+}
 
-PostDetailPage.getInitialProps = async (ctx: NextPageContext) => {
-  const { id } = ctx.query;
+export async function getStaticPaths() {
+  const posts: PostType[] = await getPosts();
 
+  const paths = posts.map((post) => ({
+    params: { id: String(post.id) },
+  }));
+
+  return { paths, fallback: false };
+}
+
+export async function getStaticProps({ params }) {
+  const { id } = params;
   const post: PostType = await getPost(id as string);
-
-  console.log("exectued posts/[id] getInitialProps");
-
-  return { post };
-};
+  return { props: { post } };
+}
 
 export default PostDetailPage;
 
