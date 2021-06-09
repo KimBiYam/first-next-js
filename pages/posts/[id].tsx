@@ -1,7 +1,7 @@
+import { GetStaticPaths, GetStaticProps, GetStaticPropsContext } from "next";
 import Link from "next/link";
 import React from "react";
 import styled from "styled-components";
-
 import { getPost, getPosts, PostType } from "../../api";
 import { Layout } from "../../components/common/Layout";
 import { Post } from "../../components/post/Post";
@@ -22,7 +22,7 @@ function PostDetailPage({ post }: Props) {
   );
 }
 
-export async function getStaticPaths() {
+export const getStaticPaths: GetStaticPaths = async () => {
   const posts: PostType[] = await getPosts();
 
   const paths = posts.map((post) => ({
@@ -30,13 +30,15 @@ export async function getStaticPaths() {
   }));
 
   return { paths, fallback: false };
-}
+};
 
-export async function getStaticProps({ params }) {
+export const getStaticProps: GetStaticProps = async ({
+  params,
+}: GetStaticPropsContext) => {
   const { id } = params;
   const post: PostType = await getPost(id as string);
   return { props: { post } };
-}
+};
 
 export default PostDetailPage;
 

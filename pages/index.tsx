@@ -1,3 +1,4 @@
+import { GetStaticProps } from "next";
 import React from "react";
 
 import { getPosts, PostType } from "../api";
@@ -16,9 +17,9 @@ function Home({ posts }: Props) {
   );
 }
 
-export async function getStaticProps() {
+export const getStaticProps: GetStaticProps = async () => {
   const posts: PostType[] = await getPosts();
   return { props: { posts } };
-}
+};
 
 export default Home;
