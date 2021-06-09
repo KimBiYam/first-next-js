@@ -2,8 +2,8 @@ import { GetStaticProps } from "next";
 import React from "react";
 
 import { getPosts, PostType } from "../api";
-import { Layout } from "../components/common/Layout";
-import { PostList } from "../components/post/PostList";
+import Layout from "../components/common/Layout";
+import PostList from "../components/post/PostList";
 
 interface Props {
   posts: PostType[];

@@ -8,7 +8,7 @@ interface Props {
   children: React.ReactNode;
 }
 
-export const Layout = ({ title, children }: Props) => {
+function Layout({ title, children }: Props) {
   return (
     <Container>
       <Head>
@@ -22,7 +22,9 @@ export const Layout = ({ title, children }: Props) => {
       <Main>{children}</Main>
     </Container>
   );
-};
+}
+
+export default Layout;
 
 const Container = styled.div`
   display: flex;

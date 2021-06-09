@@ -8,13 +8,15 @@ interface Props {
   post: PostType;
 }
 
-export const PostItem = ({ post }: Props) => {
+export function PostItem({ post }: Props) {
   return (
     <Link href={`/posts/${post.id}`}>
       <Container>{post.title}</Container>
     </Link>
   );
-};
+}
+
+export default PostItem;
 
 const Container = styled.div`
   width: 100%;

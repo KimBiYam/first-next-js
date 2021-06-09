@@ -3,8 +3,8 @@ import Link from "next/link";
 import React from "react";
 import styled from "styled-components";
 import { getPost, getPosts, PostType } from "../../api";
-import { Layout } from "../../components/common/Layout";
-import { Post } from "../../components/post/Post";
+import Layout from "../../components/common/Layout";
+import Post from "../../components/post/Post";
 
 interface Props {
   post: PostType;
@@ -40,8 +40,6 @@ export const getStaticProps: GetStaticProps = async ({
   return { props: { post } };
 };
 
-export default PostDetailPage;
-
 const BackToHome = styled.a`
   color: #2f5fd1;
   cursor: pointer;
@@ -53,3 +51,5 @@ const Divier = styled.div`
   border-bottom: 1px solid #eeeeee;
   margin: 24px 0;
 `;
+
+export default PostDetailPage;

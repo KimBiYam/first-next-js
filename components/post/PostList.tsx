@@ -8,7 +8,7 @@ interface Props {
   posts: PostType[];
 }
 
-export const PostList = ({ posts }: Props) => {
+export function PostList({ posts }: Props) {
   return (
     <>
       {posts.map((post) => {
@@ -20,7 +20,7 @@ export const PostList = ({ posts }: Props) => {
       })}
     </>
   );
-};
+}
 
 const PostWrapper = styled.div`
   margin-bottom: 12px;
@@ -28,3 +28,5 @@ const PostWrapper = styled.div`
     margin-bottom: 0;
   }
 `;
+
+export default PostList;

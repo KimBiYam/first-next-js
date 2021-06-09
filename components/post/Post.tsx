@@ -7,7 +7,7 @@ interface Props {
   post: PostType;
 }
 
-export const Post = ({ post }: Props) => {
+function Post({ post }: Props) {
   return (
     <Container>
       <Header>
@@ -16,7 +16,7 @@ export const Post = ({ post }: Props) => {
       </Header>
     </Container>
   );
-};
+}
 
 const Container = styled.div`
   width: 100%;
@@ -36,3 +36,5 @@ const Content = styled.p`
   font-size: 14px;
   color: #222222;
 `;
+
+export default Post;
