@@ -34,9 +34,4 @@ const LogoBlack = styled.a`
   color: #222222;
 `;
 
-const LogoBlue = styled.a`
-  ${LogoBase}
-  color: blue;
-`;
-
 export default Header;
