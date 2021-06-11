@@ -27,22 +27,20 @@ function Layout({ title, children }: Props) {
 export default Layout;
 
 const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
   width: 100%;
-  background-color: white;
+  height: 100%;
 `;
 
 const HeaderWrapper = styled.header`
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 80px;
   background-color: white;
   padding: 30px 24px;
   border-bottom: 1px solid #eeeeee;
-  margin-bottom: 12px;
 `;
 
 const Main = styled.main`
-  width: 100%;
-  overflow-y: auto;
-  padding: 30px 24px;
+  padding: 110px 24px 30px;
 `;

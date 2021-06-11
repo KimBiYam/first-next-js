@@ -17,9 +17,11 @@ function Header() {
 }
 
 const Container = styled.div`
+  height: 100%;
   background-color: white;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   color: #222222;
 `;
 
