@@ -2,12 +2,12 @@ import { GetStaticPaths, GetStaticProps, GetStaticPropsContext } from "next";
 import Link from "next/link";
 import React from "react";
 import styled from "styled-components";
-import { getPost, getPosts, PostType } from "../../api";
+import { getPost, getPosts, Post } from "../../api";
 import Layout from "../../components/common/Layout";
-import Post from "../../components/post/Post";
+import PostDetail from "../../components/post/PostDeatil";
 
 interface Props {
-  post: PostType;
+  post: Post;
 }
 
 function PostDetailPage({ post }: Props) {
@@ -17,13 +17,13 @@ function PostDetailPage({ post }: Props) {
         <BackToHome>홈으로 돌아가기</BackToHome>
       </Link>
       <Divier />
-      <Post post={post} />
+      <PostDetail post={post} />
     </Layout>
   );
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const posts: PostType[] = await getPosts();
+  const posts: Post[] = await getPosts();
 
   const paths = posts.map((post) => ({
     params: { id: String(post.id) },
@@ -36,7 +36,7 @@ export const getStaticProps: GetStaticProps = async ({
   params,
 }: GetStaticPropsContext) => {
   const { id } = params;
-  const post: PostType = await getPost(id as string);
+  const post: Post = await getPost(id as string);
   return { props: { post } };
 };
 

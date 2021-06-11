@@ -1,12 +1,12 @@
 import { GetStaticProps } from "next";
 import React from "react";
 
-import { getPosts, PostType } from "../api";
+import { getPosts, Post } from "../api";
 import Layout from "../components/common/Layout";
 import PostList from "../components/post/PostList";
 
 interface Props {
-  posts: PostType[];
+  posts: Post[];
 }
 
 function Home({ posts }: Props) {
@@ -18,7 +18,7 @@ function Home({ posts }: Props) {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const posts: PostType[] = await getPosts();
+  const posts: Post[] = await getPosts();
   return { props: { posts } };
 };
 

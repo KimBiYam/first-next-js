@@ -2,7 +2,7 @@ import fetch from "isomorphic-unfetch";
 
 const API_URL = "https://jsonplaceholder.typicode.com";
 
-export interface PostType {
+export interface Post {
   id: string;
   title: string;
   body: string;
@@ -11,7 +11,7 @@ export interface PostType {
 export const getPosts = async () => {
   const request = await fetch(`${API_URL}/posts`);
   const response = await request.json();
-  const posts: PostType[] = response;
+  const posts: Post[] = response;
 
   return posts;
 };
@@ -19,7 +19,7 @@ export const getPosts = async () => {
 export const getPost = async (postId: string) => {
   const request = await fetch(`${API_URL}/posts/${postId}`);
   const response = await request.json();
-  const post: PostType = response;
+  const post: Post = response;
 
   return post;
 };

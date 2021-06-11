@@ -1,29 +1,23 @@
 import React from "react";
 import styled from "styled-components";
 
-import { PostType } from "../../api";
+import { Post } from "../../api";
 
 interface Props {
-  post: PostType;
+  post: Post;
 }
 
-function Post({ post }: Props) {
+function PostDetail({ post }: Props) {
   return (
     <Container>
-      <Header>
-        <Title>{post.title}</Title>
-        <Content>{post.body}</Content>
-      </Header>
+      <Title>{post.title}</Title>
+      <Content>{post.body}</Content>
     </Container>
   );
 }
 
 const Container = styled.div`
   width: 100%;
-`;
-
-const Header = styled.div`
-  margin-bottom: 12px;
 `;
 
 const Title = styled.h1`
@@ -37,4 +31,4 @@ const Content = styled.p`
   color: #222222;
 `;
 
-export default Post;
+export default PostDetail;

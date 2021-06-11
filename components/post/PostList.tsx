@@ -1,11 +1,10 @@
 import React from "react";
 import styled from "styled-components";
-
-import { PostType } from "../../api";
-import { PostItem } from "./PostItem";
+import PostItem from "./PostItem";
+import { Post } from "../../api";
 
 interface Props {
-  posts: PostType[];
+  posts: Post[];
 }
 
 export function PostList({ posts }: Props) {
